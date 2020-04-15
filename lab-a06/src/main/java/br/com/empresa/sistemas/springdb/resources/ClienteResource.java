@@ -37,6 +37,7 @@ public class ClienteResource {
       return clienteRepository.findAll();
    }
 
+   // clientes?nome=%teste%&sobrenome=xxxx
    @GetMapping("/search")
    public List<Cliente> findByNome(@RequestParam("nome") String nome) {
       return clienteRepository.findByNome(nome);
@@ -59,7 +60,7 @@ public class ClienteResource {
    }
 
    @PutMapping("/{codigo}")
-   public ResponseEntity<Cliente> atualizar(@PathVariable Integer codigo, @Valid @RequestBody Cliente cliente) {
+   public ResponseEntity<Cliente> atualizar(@PathVariable Integer codigo,  @Valid@RequestBody Cliente cliente) {
 
       try {
 

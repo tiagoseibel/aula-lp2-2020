@@ -1,0 +1,9 @@
+- Node.js
+- @angular/cli
+
+
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+ng new aula0804
+
+git init
