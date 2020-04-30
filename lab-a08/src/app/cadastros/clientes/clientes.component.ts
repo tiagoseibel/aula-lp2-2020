@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Cliente } from './cliente-model';
+import { ClientesService } from 'src/app/services/clientes.service';
 
 @Component({
   selector: 'app-clientes',
@@ -9,17 +10,28 @@ import { Cliente } from './cliente-model';
 })
 export class ClientesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+     private cs: ClientesService
+  ) { }
 
   titulo = "Texto do titulo";
 
-   lista: any[] = [
-      {"nome": "Tiago"},
-      {"nome": "Luis"}
-   ];
+   lista: any[] = [];
 
    // https://angular.io/guide/reactive-forms
    form: FormGroup;
+
+   listar():void {
+      this.cs.findAll()
+         .then( (response) => {
+            this.lista = response.data;
+         } )
+         .catch(
+            (error) => {
+               alert(error);
+            }
+         )
+   }
 
   ngOnInit(): void {
    
@@ -32,16 +44,55 @@ export class ClientesComponent implements OnInit {
          }
       );
 
+      this.listar();
+
   }
 
   public save(): void {
 
       let obj = Object.assign({}, this.form.value) as Cliente;
 
-      this.lista.push(obj);
+      this.cs.save(obj)
+         .then(
+            (response) => {
+               if (response && response.status === 201) {
+                  alert("Cliente registrado!");
+                  this.listar();
+               }
+
+               if (response && response.status === 200) {
+                  alert("Cliente atualizado!");
+                  this.listar();
+               }
+            }
+         )
+         .catch(
+            (error) => {
+               alert(error.request.responseText);
+            }
+         )
 
   }
 
+  public excluir(item: Cliente): void {
+     if (confirm("Certeza disso?")) {
+         this.cs.delete(item.codigo)
+         .then(
+            (response) => {
+               this.listar();
+            }
+         )
+         .catch(
+            (error) => {
+               alert(error)
+            }
+         )
+     }
+  }
+
+  public select(item: Cliente):void {
+      this.form.patchValue(item);
+  }
 
   
 }

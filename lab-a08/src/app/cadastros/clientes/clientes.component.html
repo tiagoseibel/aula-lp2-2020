@@ -1,6 +1,5 @@
-<p>Cadastros de clientes</p>
-{{titulo}}
 
+<div class="titulos">Cadastros de clientes</div>
 
 <form [formGroup]="form" (ngSubmit)="save()">
    <label>Codigo:</label>
@@ -9,14 +8,20 @@
    <label>Nome:</label>
    <input type="text" formControlName="nome" />
    <br>
-   <button type="submit" [disabled]="!form.valid">Pronto</button>
+   <button type="submit">Pronto</button>
 </form>
 
-<table>
+<table class="tabelas" id="dados">
    <tr>
-      <th>Nome</th>      
+      <th>Codigo</th>      
+      <th>Nome</th> 
+      <th>-</th>     
+      <th>-</th> 
    </tr>
    <tr *ngFor="let item of lista">
-      <td>{{item.nome}}</td>      
+      <td>{{item.codigo}}</td> 
+      <td>{{item.nome}}</td> 
+      <td><a (click)="excluir(item)" class="btn">Excluir?</a></td>
+      <td><a (click)="select(item)" class="btn">Selecionar</a></td>
    </tr>
 </table>
