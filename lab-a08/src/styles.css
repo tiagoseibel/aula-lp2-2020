@@ -17,9 +17,9 @@ input[type=text] {
 }
 
 button {
-   background-color:#008CBA;
-   border:none;
-   color:white;
+   background-color: #008CBA;
+   border: none;
+   color: white;
    padding: 15px 32px;
    text-align: center;
    text-decoration: none;
@@ -34,7 +34,6 @@ button {
    margin: 12px auto;
    text-align: center;
 }
-
 
 table.tabelas {
    margin: auto;
@@ -62,11 +61,10 @@ table.tabelas {
    background-color: #ddd;
 }
 
-
 a.btn {
-   background-color:#008CBA;
-   border:none;
-   color:white;
+   background-color: #008CBA;
+   border: none;
+   color: white;
    padding: 8px 8px;
    text-align: center;
    text-decoration: none;
