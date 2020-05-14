@@ -15,6 +15,7 @@ export class VendasComponent implements OnInit {
 
   }
 
+
   editar():void {
    this._router.navigate(["/vendas/1/itens"]);
   }
