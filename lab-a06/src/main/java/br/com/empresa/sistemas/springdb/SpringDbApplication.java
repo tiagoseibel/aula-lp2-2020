@@ -15,7 +15,9 @@ public class SpringDbApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringDbApplication.class, args);
 	}
-	
+   // localhost:4200 (angular)
+   // localhost:8080 (api java)
+
    @Bean
    public FilterRegistrationBean corsFilter() {
        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
