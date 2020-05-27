@@ -4,20 +4,27 @@ import { ClientesComponent } from './cadastros/clientes/clientes.component';
 import { ProdutosComponent } from './cadastros/produtos/produtos.component';
 import { VendasComponent } from './cadastros/vendas/vendas.component';
 import { VendasItensComponent } from './cadastros/vendas-itens/vendas-itens.component';
+import { VendasCadastroComponent } from './cadastros/vendas-cadastro/vendas-cadastro.component';
 
 
 const routes: Routes = [
    { path: "clientes", component: ClientesComponent },
    { path: "produtos", component: ProdutosComponent },
    {
-      path: "vendas", component: VendasComponent
-   },
-   {
-      path: "vendas/:id", component: VendasComponent,
+      path: "vendas",
       children: [
-         { path: "itens", component: VendasItensComponent }
+         { path: '', component: VendasComponent },
+         { path: 'cadastro', component: VendasCadastroComponent },
+         {
+            path: 'cadastro/:codigo',
+            component: VendasCadastroComponent,
+            children: [
+               { path: 'itens', component: VendasItensComponent }
+            ]
+         },
       ]
-   }
+   },
+
 ];
 
 @NgModule({

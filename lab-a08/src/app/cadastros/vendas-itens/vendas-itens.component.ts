@@ -17,11 +17,7 @@ export class VendasItensComponent implements OnInit {
    // https://angular.io/guide/router#activated-route-in-action
    // vendas/1/itens
    ngOnInit(): void {
-      this.vendaId = this._activatedRoute.paramMap.pipe(
-         switchMap( 
-            (params: ParamMap) => params.get('id')
-         )
-      );
+      this.vendaId = this._activatedRoute.parent.snapshot.paramMap.get('codigo');
       console.log(this.vendaId)
    }
 

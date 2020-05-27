@@ -1,0 +1,10 @@
+<form [formGroup]="form" (submit)="save()">
+   <label>Cliente</label>
+   <input type="text" formControlName="cliente"/>
+   <label>Valor</label>
+   <input type="text" formControlName="valorTotal"/>
+   <label>Data</label>
+   <input type="text" formControlName="dataVenda"/>
+   <button type="submit">Pronto</button>
+</form>
+<router-outlet></router-outlet>

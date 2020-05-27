@@ -8,6 +8,7 @@ import { ClientesComponent } from './cadastros/clientes/clientes.component';
 import { ProdutosComponent } from './cadastros/produtos/produtos.component';
 import { VendasComponent } from './cadastros/vendas/vendas.component';
 import { VendasItensComponent } from './cadastros/vendas-itens/vendas-itens.component';
+import { VendasCadastroComponent } from './cadastros/vendas-cadastro/vendas-cadastro.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { VendasItensComponent } from './cadastros/vendas-itens/vendas-itens.comp
     ClientesComponent,
     ProdutosComponent,
     VendasComponent,
-    VendasItensComponent
+    VendasItensComponent,
+    VendasCadastroComponent
   ],
   imports: [
     BrowserModule,

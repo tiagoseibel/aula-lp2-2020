@@ -26,5 +26,9 @@ export class VendasService {
       return axios.delete(this.url + "/" + venda_id);
    }
 
+   public relatorio(): Promise<any> {
+      return axios.get(this.url + "/relatorio", {responseType: "blob"});
+   }
+
   constructor() { }
 }
