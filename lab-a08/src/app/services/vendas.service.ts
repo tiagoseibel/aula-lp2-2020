@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 
 import axios from 'axios';
 import { Venda } from '../cadastros/vendas/venda-model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VendasService {
 
-   url = "http://localhost:8080/vendas";
+   url =  environment.serverUrl + "vendas";
 
    public findAll(): Promise<any> {
       return axios.get(this.url);

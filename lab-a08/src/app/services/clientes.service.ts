@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 
 import axios from 'axios';
 import { Cliente } from '../cadastros/clientes/cliente-model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientesService {
 
-   url:string = "http://localhost:8080/clientes";
+   url:string = environment.serverUrl + "clientes";
 
   constructor() { }
 
